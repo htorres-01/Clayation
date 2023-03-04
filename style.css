@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #FFC0CB
+  }
+  
+  #header {
+    color: white;
+    background-color: pink;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Does shadow bordering all around */
+  }
+  
+  #subheader {
+    color: white;
+    background-color: pink;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Does shadow bordering all around */
+  }
+  
+  #tophotos{
+    color: white;
+    background-color: pink;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+  
+  .card-img-top {
+      width: 100%;
+      height: 15vw; /* Adjusts card images to be same size -- Change for size */
+      object-fit: cover; /* enables resize by zoom instead of image stretch */
+  }
+  
+  #ellieimg {
+    border: 5px solid gray;
+  }
