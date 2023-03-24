@@ -1,2 +1,6 @@
-SELECT * FROM products;
+SELECT * FROM reviews;
+
+
+
+
 
