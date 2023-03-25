@@ -1,24 +1,31 @@
-html, body {
+  html, body {
     height: 100%;
     width: 100%;
     background-color: #FFC0CB
   }
+
+  #indexbody {
+    height: 100%;
+    width: 100%;
+    /* background-color: #FFC0CB */
+    background-image: url('images/clay2.jpg');
+  }
   
   #header {
     color: white;
-    background-color: pink;
+    /* background-color: pink; */
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Does shadow bordering all around */
   }
   
   #subheader {
     color: white;
-    background-color: pink;
+    /* background-color: pink; */
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Does shadow bordering all around */
   }
   
   #tophotos{
     color: white;
-    background-color: pink;
+    /* background-color: pink; */
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
   
