@@ -31,3 +31,13 @@ html, body {
   #ellieimg {
     border: 5px solid gray;
   }
+
+  #reviewlist {
+    height: 600px; /* set a fixed height */
+    overflow-y: scroll; /* add a vertical scroll bar */
+  }
+
+  #review-entrytext {
+    height: 396px;
+    resize: none;
+  }
