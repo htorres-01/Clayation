@@ -8,8 +8,8 @@
             "server": "localhost",
             "port": 33060,
             "driver": "MySQL",
-            "name": "Local instance MySQL80",
-            "database": "clayations",
+            "name": "Local instance MySQL 80",
+            "database": "clayation_db",
             "username": "root",
             "connectionTimeout": 15
         }
