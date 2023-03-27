@@ -22,7 +22,7 @@ $sql = "INSERT INTO reviews (first_name, last_name, review) VALUES ('$first_name
 
 if ($conn->query($sql) === TRUE) {
     // Redirect back to the original HTML page
-    header("Location: reviews.html");
+    header("Location: reviews.php");
     exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

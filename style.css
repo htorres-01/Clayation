@@ -44,7 +44,12 @@
     overflow-y: scroll; /* add a vertical scroll bar */
   }
 
+  #reviewlist li p {
+    max-width: 400px; /* set a maximum width for the review text */
+  }
+  
   #review-entrytext {
     height: 396px;
     resize: none;
   }
+

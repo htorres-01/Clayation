@@ -31,7 +31,7 @@
       </li>
       <li class="nav-item active px-5 mx-5">
         <!-- <img src="images/notes.png" width="45" height="45"> -->
-        <a class="nav-link" href="reviews.html"><h2>Reviews</h2></a>
+        <a class="nav-link" href="reviews.php"><h2>Reviews</h2></a>
       </li>
       <li class="nav-item px-5 mx-5">
         <!-- <img src="images/icon.png" width="45" height="45"> -->
@@ -78,7 +78,6 @@
       </tr>
     </tbody>
     </table> -->  
-
   </div>
 
   <div class="container">
@@ -88,16 +87,16 @@
         <h2>Enter A Review</h2>
         <form action="post-review.php" method="POST">
           <div class="form-group">
-            <label for="first_name">First Name</label>
-            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter your first name">
+            <label for="first_name"></label>
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter your first name" style="width: 100%">
           </div>
           <div class="form-group">
-            <label for="last_name">Last Name</label>
-            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter your last name">
+            <label for="last_name"></label>
+            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter your last name" style="width: 100%">
           </div>
           <div class="form-group">
-            <label for="message">Review</label>
-            <textarea class="form-control" name="review" id="review-entrytext" rows="5" placeholder="Enter your review"></textarea>
+            <label for="review"></label>
+            <textarea class="form-control" name="review" id="review-entrytext" rows="5" placeholder="Enter your review (256 Char. Limit)" maxlength="256"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -106,28 +105,43 @@
       <!-- Posted reviews column -->
       <div class="col-md-6">
         <div class="review-box">
-          <h2>Posted Reviews</h2>
+          <h2 style="margin-bottom: 31px;">Posted Reviews</h2>
           <ul class="list-group" id="reviewlist">
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">John Doe</h4>
-              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-            </li>
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">Jane Smith</h4>
-              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-            </li>
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">John Doe</h4>
-              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-            </li>
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">Jane Smith</h4>
-              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-            </li>
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">John Doe</h4>
-              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
-  
+            <?php
+              // Set up database connection
+              $servername = "localhost";
+              $username = "root";
+              $password = "hman123";
+              $dbname = "clayation_db";
+              $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+              // Check connection
+              if (!$conn) {
+                  die("Connection failed: " . mysqli_connect_error());
+              }
+
+              // Select all reviews from the "reviews" table
+              $sql = "SELECT * FROM reviews";
+              $result = mysqli_query($conn, $sql);
+
+              // Output each review as a list item in the review board
+              if (mysqli_num_rows($result) > 0) {
+                  while($row = mysqli_fetch_assoc($result)) {
+                      echo '<li class="list-group-item">';
+                      echo '<h4 class="list-group-item-heading">' . $row["first_name"] . ' ' . $row["last_name"] . '</h4>';
+                      echo '<p class="list-group-item-text">' . $row["review"] . '</p>';
+                      echo '</li>';
+                  }
+              } else {
+                  echo "<li class='list-group-item'>No reviews yet.</li>";
+              }
+
+              // Close database connection
+              mysqli_close($conn);
+            ?>  
+          </ul>
+        </div>
+      </div>
 
   <!-- Footer -->
   <nav class="navbar fixed-bottom bg-body-tertiary navbar navbar-expand-lg navbar-dark bg-dark">
