@@ -41,69 +41,44 @@
   </div>
   </nav>
 
-  <!-- Review Table -->
-  <div class="container d-flex justify-content-center px-5 pt-5">
-    <!-- 
-    <table class="table">
-    <thead>
-      <tr class='table-light'>
-        <th scope="col">#</th>
-        <th scope="col">Date</th>
-        <th scope="col">Name</th>
-        <th scope="col">Stars</th>
-        <th scope="col">Message</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class='table-info'>
-        <th scope="row">1</th>
-        <td>Jan 1, 2023</td>
-        <td>John Smith</td>
-        <td>X/5</td>
-        <td>I love these earrings!</td>
-      </tr>
-      <tr class='table-info'>
-        <th scope="row">2</th>
-        <td>Jan 1, 2023</td>
-        <td>Jane Doe</td>
-        <td>X/5</td>
-        <td>I love these earrings!</td>
-      </tr>
-      <tr class='table-info'>
-        <th scope="row">3</th>
-        <td>Jan 1, 2023</td>
-        <td>Bob Jones</td>
-        <td>X/5</td>
-        <td>I love these earrings!</td>
-      </tr>
-    </tbody>
-    </table> -->  
-  </div>
+  <!-- Top Padding -->
+  <div class="container d-flex justify-content-center px-5 pt-5"></div>
 
+  <!-- Reviews -->
   <div class="container">
     <div class="row">
-      <!-- Form column -->
-      <div class="col-md-6 border-right">
+      <!-- Form Data -->
+      <div class="col-md-6 border-right border-left">
         <h2>Enter A Review</h2>
         <form action="post-review.php" method="POST">
           <div class="form-group">
             <label for="first_name"></label>
-            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter your first name" style="width: 100%">
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter your first name" style="width: 100%" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="last_name"></label>
-            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter your last name" style="width: 100%">
+            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter your last name" style="width: 100%" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="review"></label>
-            <textarea class="form-control" name="review" id="review-entrytext" rows="5" placeholder="Enter your review (256 Char. Limit)" maxlength="256"></textarea>
+            <textarea class="form-control" name="review" id="review-entrytext" rows="5" placeholder="Enter your review" maxlength="256" oninput="document.getElementById('charCount').innerHTML = this.value.length + '/256 characters'"></textarea>
+            <p id="char-count"></p>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
+          <!-- Script for char counter in review entry area -->
+          <script>
+            const reviewEntry = document.getElementById('review-entrytext');
+            const charCount = document.getElementById('char-count');
+  
+            reviewEntry.addEventListener('input', () => {
+              charCount.textContent = reviewEntry.value.length + '/256 characters';
+            });
+          </script>
         </form>
       </div>
   
-      <!-- Posted reviews column -->
-      <div class="col-md-6">
+      <!-- Posted Reviews  -->
+      <div class="col-md-6 border-right">
         <div class="review-box">
           <h2 style="margin-bottom: 31px;">Posted Reviews</h2>
           <ul class="list-group" id="reviewlist">
